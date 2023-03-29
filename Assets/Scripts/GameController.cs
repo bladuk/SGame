@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     {
         try
         {
-            GameParser.Singleton.TryDeserializeFromFile(MainMenu.Singleton.GameFilePath, out Sequence deserializedSequence);
+            GameParser.Singleton.TryDeserializeFromFile(QuestionsBrowser.Singleton.GameFilePath, out Sequence deserializedSequence);
             
             CurrentSequence = deserializedSequence;
             ResetBackground();
@@ -67,8 +67,10 @@ public class GameController : MonoBehaviour
         _questionTopic.text = category;
         _question.text = question.Content;
         _answer.text = question.Answer;
-        if (question.Background.Length > 0)
+        
+        if (question.Background.Length > 1)
             _backgroundImage.GetComponent<DynamicImage>().SetImage(question.Background);
+        
         if (question.Image.Length > 0)
         {
             try

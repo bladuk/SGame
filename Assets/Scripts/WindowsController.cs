@@ -32,7 +32,7 @@ public class WindowsController : MonoBehaviour
     private void UpdateActiveWindowsList()
     {
         Debug.Log("Updating active windows list");
-        foreach (var window in _activeWindows.Where(window => !window.activeSelf))
+        foreach (var window in _activeWindows.ToList().Where(window => !window.activeSelf))
         {
             _activeWindows.Remove(window);
         }

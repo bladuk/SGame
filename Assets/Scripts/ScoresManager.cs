@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoresManager : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown _teamsDropdown;
-
+    
     public static ScoresManager Singleton;
     
     internal readonly Dictionary<string, int> TeamScores = new();

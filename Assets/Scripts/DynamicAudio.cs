@@ -22,6 +22,7 @@ public class DynamicAudio : MonoBehaviour
 
         var request = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG);
         yield return request.SendWebRequest();
+        Debug.Log(request.downloadProgress.ToString());
 
         if (request.result != UnityWebRequest.Result.Success)
         {

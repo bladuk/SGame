@@ -36,11 +36,11 @@ public class DeveloperConsole : MonoBehaviour
         switch (commandName)
         {
             case "buildinfo":
-                AppendOutput($"Version: {Application.version}\nIS beta: {BuildInfo.Singleton.IsBetaBuild}\nIs development: {BuildInfo.Singleton.IsDevelopmentBuild}\nUnity version: {Application.unityVersion}");
+                AppendOutput($"Version: {Application.version}\nIs beta: {BuildInfo.Singleton.IsBetaBuild}\nIs development: {BuildInfo.Singleton.IsDevelopmentBuild}\nUnity version: {Application.unityVersion}");
                 break;
             case "exit":
                 AppendOutput("Exiting the game...");
-                MainMenu.Singleton.Quit();
+                Application.Quit();
                 break;
             case "exec":
                 Type.GetType(args[0]).GetMethod(args[1]).Invoke(null, Array.Empty<object>());
@@ -50,6 +50,8 @@ public class DeveloperConsole : MonoBehaviour
                 {
                     AppendOutput($"{team.Id.text}. {team.Name.text}");
                 }
+                break;
+            case "toast":
                 break;
             default:
                 AppendOutput($"Error! Command {commandName} not found.");

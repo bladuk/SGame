@@ -7,58 +7,65 @@ using Newtonsoft.Json;
 
 public class GameParser : MonoBehaviour
 {
+    internal readonly Sequence SequenceTemplate = new Sequence("", "", "", new Dictionary<string, List<Question>>()
+    {
+        {
+            "тема 1", new List<Question>()
+            {
+                new Question(100, "", ""), new Question(200, "", ""),
+                new Question(300, "", ""), new Question(400, "", ""),
+                new Question(500, "", "")
+            }
+        },
+        {
+            "тема 2", new List<Question>()
+            {
+                new Question(100, "", ""), new Question(200, "", ""),
+                new Question(300, "", ""), new Question(400, "", ""),
+                new Question(500, "", "")
+            }
+        },
+        {
+            "тема 3", new List<Question>()
+            {
+                new Question(100, "", ""), new Question(200, "", ""),
+                new Question(300, "", ""), new Question(400, "", ""),
+                new Question(500, "", "")
+            }
+        },
+        {
+            "тема 4", new List<Question>()
+            {
+                new Question(100, "", ""), new Question(200, "", ""),
+                new Question(300, "", ""), new Question(400, "", ""),
+                new Question(500, "", "")
+            }
+        },
+        {
+            "тема 5", new List<Question>()
+            {
+                new Question(100, "", ""), new Question(200, "", ""),
+                new Question(300, "", ""), new Question(400, "", ""),
+                new Question(500, "", "")
+            }
+        },
+        {
+            "тема 6", new List<Question>()
+            {
+                new Question(100, "", ""), new Question(200, "", ""),
+                new Question(300, "", ""), new Question(400, "", ""),
+                new Question(500, "", "")
+            }
+        }
+    });
+    
     public static GameParser Singleton;
 
     private void Awake()
     {
         Singleton = this;
     }
-
-    public void BuildTemplateFile()
-    {
-        var templateObject = new Sequence("Template", "The template questions file.", "", new Dictionary<string, List<Question>>()
-        {
-            { "topic1", new List<Question>()
-            {
-                new Question(100, "content", "answer"), new Question(200, "content", "answer"),
-                new Question(300, "content", "answer"), new Question(400, "content", "answer"), 
-                new Question(500, "content", "answer")
-            }},
-            { "topic2", new List<Question>()
-            {
-                new Question(100, "content", "answer"), new Question(200, "content", "answer"),
-                new Question(300, "content", "answer"), new Question(400, "content", "answer"), 
-                new Question(500, "content", "answer")
-            }},
-            { "topic3", new List<Question>()
-            {
-                new Question(100, "content", "answer"), new Question(200, "content", "answer"),
-                new Question(300, "content", "answer"), new Question(400, "content", "answer"), 
-                new Question(500, "content", "answer")
-            }},
-            { "topic4", new List<Question>()
-            {
-                new Question(100, "content", "answer"), new Question(200, "content", "answer"),
-                new Question(300, "content", "answer"), new Question(400, "content", "answer"), 
-                new Question(500, "content", "answer")
-            }},
-            { "topic5", new List<Question>()
-            {
-                new Question(100, "content", "answer"), new Question(200, "content", "answer"),
-                new Question(300, "content", "answer"), new Question(400, "content", "answer"), 
-                new Question(500, "content", "answer")
-            }},
-            { "topic6", new List<Question>()
-            {
-                new Question(100, "content", "answer"), new Question(200, "content", "answer"),
-                new Question(300, "content", "answer"), new Question(400, "content", "answer"), 
-                new Question(500, "content", "answer")
-            }}
-        });
-        
-        File.WriteAllText(Path.Combine(MainMenu.Singleton.QuestionsFolder, "Template.sgamesq"), JsonConvert.SerializeObject(templateObject, Formatting.Indented));
-    }
-
+    
     public bool TryDeserializeFromFile(string sourcePath, out Sequence gameSequence)
     {
         if (File.Exists(sourcePath))

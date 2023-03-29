@@ -28,7 +28,7 @@ public class Tooltip : MonoBehaviour
         _layoutElement.enabled = _tooltipContent.text.Length > _contentCharacterWrapLimit;
         _rectTransform.pivot = new Vector2(position.x / Screen.width, position.y / Screen.height);
         
-        transform.position = position;
+        transform.position = position + Vector2.up * _rectTransform.sizeDelta.y / 2;
     }
 
     public void ShowTooltip(string content)

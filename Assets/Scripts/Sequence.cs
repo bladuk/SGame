@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class Sequence
@@ -10,8 +11,8 @@ public class Sequence
         Questions = questions;
     }
 
-    public string Topic { get; }
-    public string Description { get; }
-    public string Background { get; }
-    public Dictionary<string, List<Question>> Questions { get; }
+    public string Topic { get; internal set; }
+    public string Description { get; internal set; }
+    public string Background { get; internal set; }
+    public Dictionary<string, List<Question>> Questions { get; internal set; }
 }

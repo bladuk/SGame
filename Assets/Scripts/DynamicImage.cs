@@ -14,7 +14,12 @@ public class DynamicImage : MonoBehaviour
 
     public void SetImage(string url, bool cache = true)
     {
-        if (url.Length <= 0 && _defaultSprite == null) return;
+        Debug.Log(url.Length.ToString());
+        if (url.Length <= 1)
+        {
+            gameObject.GetComponent<Image>().sprite = _defaultSprite;
+            return;
+        }
         
         if (!gameObject.activeSelf)
             gameObject.SetActive(true);
@@ -32,6 +37,7 @@ public class DynamicImage : MonoBehaviour
 
         var request = UnityWebRequestTexture.GetTexture(url);
         yield return request.SendWebRequest();
+        Debug.Log(request.downloadProgress.ToString());
         
         if (request.result != UnityWebRequest.Result.Success)
         {
