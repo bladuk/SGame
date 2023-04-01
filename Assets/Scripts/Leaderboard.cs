@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Leaderboard : MonoBehaviour
 {
-    [SerializeField] private GameObject _leaderboard;
+    [SerializeField] internal GameObject Leaderborad;
     
     [Header("Teams")]
     [SerializeField] private GameObject _teamPrefab;
@@ -35,10 +35,13 @@ public class Leaderboard : MonoBehaviour
 
     private void Update()
     {
-        _teamsContentSizeFitter.enabled = TeamsManager.Singleton.Teams.Count > 9;
-        _scoreContentSizeFitter.enabled = TeamsManager.Singleton.Teams.Count > 9;
+        if (!GameEndHandler.Singleton.GameEnded)
+        {
+            _teamsContentSizeFitter.enabled = TeamsManager.Singleton.Teams.Count > 9;
+            _scoreContentSizeFitter.enabled = TeamsManager.Singleton.Teams.Count > 9;
         
-        _leaderboard.SetActive(Input.GetKey(KeyCode.Tab));
+            Leaderborad.SetActive(Input.GetKey(KeyCode.Tab));   
+        }
     }
 
     public void UpdateLeaderboardScore(int teamId)

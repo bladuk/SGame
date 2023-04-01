@@ -10,6 +10,13 @@ public class GameTimer : MonoBehaviour
     private DateTime _gameStartedTime;
     private CoroutineHandle _timerCoroutine;
 
+    internal static GameTimer Singleton;
+
+    private void Awake()
+    {
+        Singleton = this;
+    }
+
     private void Start()
     {
         _gameStartedTime = DateTime.Now;

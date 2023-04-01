@@ -80,7 +80,7 @@ public class TeamsManager : MonoBehaviour
         
         if (Teams.Count == 0) return;
         
-        Toast.Singleton.ShowToast(Toast.ToastMessageType.Information, "Информация", "Список команд успешно сохранен.", duration: 5f);
+        Toast.Singleton.ShowToast(Toast.ToastMessageType.Success, "Информация", "Список команд успешно сохранен.", duration: 5f);
         ActionsRequired = false;
     }
     

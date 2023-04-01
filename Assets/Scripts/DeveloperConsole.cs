@@ -1,19 +1,21 @@
 using System;
 using System.Collections;
-using System.Reflection;
 using TMPro;
 using UnityEngine;
 
 public class DeveloperConsole : MonoBehaviour
 {
-    public static DeveloperConsole Singleton;
     [SerializeField] private GameObject _console;
     [SerializeField] private TMP_InputField _commandInput;
     [SerializeField] private TMP_Text _output;
 
-    private void Awake()
+    public void OpenLogFile()
     {
-        Singleton = this;
+#if UNITY_EDITOR
+        Application.OpenURL($"file://{Environment.GetEnvironmentVariable("USERPROFILE")}\\AppData\\Local\\Unity\\Editor\\Editor.log");
+#else        
+        Application.OpenURL($"file://{Environment.GetEnvironmentVariable("USERPROFILE")}\\AppData\\LocalLow\\{Application.companyName.Replace(" ", "")}\\{Application.productName}\\Player.log");   
+#endif
     }
 
     public void ExecuteCommand()
@@ -50,8 +52,6 @@ public class DeveloperConsole : MonoBehaviour
                 {
                     AppendOutput($"{team.Id.text}. {team.Name.text}");
                 }
-                break;
-            case "toast":
                 break;
             default:
                 AppendOutput($"Error! Command {commandName} not found.");

@@ -9,7 +9,7 @@ public class Toast : MonoBehaviour
     [SerializeField] private GameObject _toastPrefab;
     [SerializeField] private GameObject _toastsViewport;
     [SerializeField] private List<Sprite> _icons;
-    private List<GameObject> _allToasts = new List<GameObject>();
+    private List<GameObject> _allToasts = new();
 
     public static Toast Singleton;
 

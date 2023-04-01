@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\ToastPrefab.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+     <Compile Include="Assets\Scripts\MediaPreloader.cs" />
      <Compile Include="Assets\Scripts\Sequence.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\Scripts\GameParser.cs" />
@@ -107,6 +108,8 @@
      <Compile Include="Assets\Scripts\ScoresManager.cs" />
      <Compile Include="Assets\Scripts\GameAudio.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+     <Compile Include="Assets\Scripts\EditorWindow.cs" />
+     <Compile Include="Assets\Scripts\GameEndHandler.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

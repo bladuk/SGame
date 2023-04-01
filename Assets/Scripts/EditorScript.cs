@@ -16,12 +16,21 @@ public class EditorScript : MonoBehaviour
 
     private string _currentFilePath;
     private Sequence _outputSequence;
+    
+    internal bool ActionsRequired = false;
 
     public static EditorScript Singleton;
 
     private void Awake()
     {
         Singleton = this;
+    }
+
+    private void Start()
+    {
+        _topicInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+        _descriptionInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+        _backgroundInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
     }
 
     internal void OpenEditor() => _editorBase.SetActive(true);
@@ -51,6 +60,12 @@ public class EditorScript : MonoBehaviour
         }
         
         _outputSequence.Description = _descriptionInputField.text;
+
+        if (_backgroundInputField.text.Length > 1)
+        {
+            _outputSequence.Background = _backgroundInputField.text;
+        }
+
         _outputSequence.Questions = new Dictionary<string, List<Question>>();
         
         for (int i = 0; i < _categoriesViewport.transform.childCount; i++)
@@ -90,7 +105,8 @@ public class EditorScript : MonoBehaviour
         }
         
         File.WriteAllText(_currentFilePath, JsonConvert.SerializeObject(_outputSequence, Formatting.Indented));
-        Toast.Singleton.ShowToast(Toast.ToastMessageType.Information, "Информация", "Файл успешно сохранен.");
+        Toast.Singleton.ShowToast(Toast.ToastMessageType.Success, "Информация", "Файл успешно сохранен.");
+        ActionsRequired = false;
     }
     
     internal void LoadFromFile(string filePath)
@@ -112,11 +128,21 @@ public class EditorScript : MonoBehaviour
                 var questionObject = Instantiate(category.QuestionPrefab, category.QuestionsViewport.transform).GetComponent<QuestionPrefab>();
 
                 questionObject.CostText.text = question.Cost.ToString();
+                
                 questionObject.ContentInputField.text = question.Content;
+                questionObject.ContentInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+                
                 questionObject.AnswerInputField.text = question.Answer;
+                questionObject.AnswerInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+                
                 questionObject.BackgroundInputField.text = question.Background;
+                questionObject.BackgroundInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+                
                 questionObject.ImageInputField.text = question.Image;
+                questionObject.ImageInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+                
                 questionObject.AudioInputField.text = question.Audio;
+                questionObject.AudioInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
             }
         }
 

@@ -14,11 +14,12 @@ public class QuestionsBrowser : MonoBehaviour
     [SerializeField] private GameObject _deleteFileDialog;
     
     private List<GameObject> _sequences = new();
-    private Sequence _sequenceSelected;
     
     internal string QuestionsFolder { get; private set; } = string.Empty;
     internal string GameFilePath { get; private set; } = string.Empty;
     internal string LastInteractionFile { get; private set; } = string.Empty;
+    internal Sequence LoadedSequence { get; private set; }
+    
     
     public static QuestionsBrowser Singleton;
 
@@ -80,6 +81,8 @@ public class QuestionsBrowser : MonoBehaviour
         }
 
         GameFilePath = filePath;
+        GameParser.Singleton.TryDeserializeFromFile(filePath, out Sequence sequence);
+        LoadedSequence = sequence;
         SceneManager.LoadScene(1);
     }
 
