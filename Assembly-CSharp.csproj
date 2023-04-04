@@ -44,6 +44,7 @@
      <Compile Include="Assets\Scripts\DeleteFileDialog.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+     <Compile Include="Assets\Scripts\EditorWindow.cs" />
      <Compile Include="Assets\Scripts\WindowsController.cs" />
      <Compile Include="Assets\Scripts\QuestionsBrowser.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\Version.cs" />
      <Compile Include="Assets\Scripts\ToastPrefab.cs" />
+     <Compile Include="Assets\Scripts\GameEndHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
      <Compile Include="Assets\Scripts\MediaPreloader.cs" />
@@ -108,8 +110,7 @@
      <Compile Include="Assets\Scripts\ScoresManager.cs" />
      <Compile Include="Assets\Scripts\GameAudio.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\EditorWindow.cs" />
-     <Compile Include="Assets\Scripts\GameEndHandler.cs" />
+     <Compile Include="Assets\Scripts\MediaPreloaderError.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -161,6 +162,7 @@
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Textures" />
      <Folder Include="Assets\TextMesh Pro\Documentation" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras" />
+     <Folder Include="Assets\Animations" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Fonts &amp; Materials" />
      <Folder Include="Assets\Dark UI\Prefabs Panel" />

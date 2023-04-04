@@ -15,6 +15,7 @@ public class MediaPreloader : MonoBehaviour
     [SerializeField] private TMP_Text _filesCount;
 
     private CoroutineHandle _downloadCoroutine;
+    internal string CurrentFileUrl { get; private set; } = string.Empty;
 
     internal readonly Dictionary<string, Sprite> SpritesCache = new();
     internal readonly Dictionary<string, AudioClip> AudiosCache = new();
@@ -48,11 +49,17 @@ public class MediaPreloader : MonoBehaviour
 
         _downloadCoroutine = Timing.RunCoroutine(DownloadContent(imageQueue, audioQueue));
     }
+
+    public void ResumeDownloading()
+    {
+        Timing.ResumeCoroutines(_downloadCoroutine);
+    }
     
     private IEnumerator<float> DownloadContent(List<string> imageUrls, List<string> audioUrls)
     {
         foreach (var url in imageUrls)
         {
+            CurrentFileUrl = url;
             _filesCount.text = $"{imageUrls.IndexOf(url) + 1} / {imageUrls.Count}";
             var request = UnityWebRequestTexture.GetTexture(url);
             request.SendWebRequest();
@@ -69,8 +76,9 @@ public class MediaPreloader : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                SceneManager.LoadScene(0);
-                throw new Exception($"An error has occured while downloading the image ({url})\n{request.error}");
+                MediaPreloaderError.Singleton.ShowErrorMessage();
+                Timing.PauseCoroutines(_downloadCoroutine);
+                continue;
             }
         
             Sprite webSprite = SpriteFromTexture2D(((DownloadHandlerTexture)request.downloadHandler).texture);
@@ -97,8 +105,9 @@ public class MediaPreloader : MonoBehaviour
             
             if (request.result != UnityWebRequest.Result.Success)
             {
-                SceneManager.LoadScene(0);
-                throw new Exception($"An error has occured while downloading the image ({url})\n{request.error}");
+                MediaPreloaderError.Singleton.ShowErrorMessage();
+                Timing.PauseCoroutines(_downloadCoroutine);
+                continue;
             }
             
             AudioClip webClip = ((DownloadHandlerAudioClip) request.downloadHandler).audioClip;

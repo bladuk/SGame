@@ -9728,8 +9728,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsBetaBuild: 0
   IsDevelopmentBuild: 0
-  IsDebugMode: 1
-  BuildHash: adf0c10
+  IsDebugMode: 0
+  BuildHash: 3de46cd
 --- !u!114 &958708853
 MonoBehaviour:
   m_ObjectHideFlags: 0
