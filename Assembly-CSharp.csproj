@@ -100,17 +100,18 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\Scripts\TeamPrefab.cs" />
      <Compile Include="Assets\Scripts\SequencePrefab.cs" />
+     <Compile Include="Assets\Scripts\UpscalableImage.cs" />
      <Compile Include="Assets\Scripts\GameTimer.cs" />
      <Compile Include="Assets\Scripts\Tooltip.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+     <Compile Include="Assets\Scripts\MediaPreloaderError.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\ScoresManager.cs" />
      <Compile Include="Assets\Scripts\GameAudio.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\MediaPreloaderError.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -162,7 +163,6 @@
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Textures" />
      <Folder Include="Assets\TextMesh Pro\Documentation" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras" />
-     <Folder Include="Assets\Animations" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Fonts &amp; Materials" />
      <Folder Include="Assets\Dark UI\Prefabs Panel" />

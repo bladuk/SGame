@@ -37,8 +37,11 @@ public class MediaPreloader : MonoBehaviour
         
         foreach (var question in QuestionsBrowser.Singleton.LoadedSequence.Questions.Values.SelectMany(q => q))
         {
-            if (!string.IsNullOrEmpty(question.Image) && !imageQueue.Contains(question.Image))
-                imageQueue.Add(question.Image);
+            if (!string.IsNullOrEmpty(question.QuestionImage) && !imageQueue.Contains(question.QuestionImage))
+                imageQueue.Add(question.QuestionImage);
+            
+            if (!string.IsNullOrEmpty(question.AnswerImage) && !imageQueue.Contains(question.AnswerImage))
+                imageQueue.Add(question.AnswerImage);
             
             if (!string.IsNullOrEmpty(question.Background) && !imageQueue.Contains(question.Background))
                 imageQueue.Add(question.Background);

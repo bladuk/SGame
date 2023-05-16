@@ -7,6 +7,7 @@ public class QuestionPrefab : MonoBehaviour
     public TMP_InputField ContentInputField;
     public TMP_InputField AnswerInputField;
     public TMP_InputField BackgroundInputField;
-    public TMP_InputField ImageInputField;
+    public TMP_InputField QuestionImageInputField;
+    public TMP_InputField AnswerImageInputField;
     public TMP_InputField AudioInputField;
 }

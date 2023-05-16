@@ -100,7 +100,7 @@ public class EditorScript : MonoBehaviour
                     return;
                 }
                 
-                _outputSequence.Questions[category.TitleText.text].Add(new Question(short.Parse(question.CostText.text), question.ContentInputField.text, question.AnswerInputField.text, question.BackgroundInputField.text, question.AudioInputField.text, question.ImageInputField.text));
+                _outputSequence.Questions[category.TitleText.text].Add(new Question(short.Parse(question.CostText.text), question.ContentInputField.text, question.AnswerInputField.text, question.BackgroundInputField.text, question.AudioInputField.text, question.QuestionImageInputField.text, question.AnswerImageInputField.text));
             }
         }
         
@@ -138,8 +138,11 @@ public class EditorScript : MonoBehaviour
                 questionObject.BackgroundInputField.text = question.Background;
                 questionObject.BackgroundInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
                 
-                questionObject.ImageInputField.text = question.Image;
-                questionObject.ImageInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+                questionObject.QuestionImageInputField.text = question.QuestionImage;
+                questionObject.QuestionImageInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
+                
+                questionObject.AnswerImageInputField.text = question.AnswerImage;
+                questionObject.AnswerImageInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });
                 
                 questionObject.AudioInputField.text = question.Audio;
                 questionObject.AudioInputField.onValueChanged.AddListener(delegate { ActionsRequired = true; });

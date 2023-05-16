@@ -86,5 +86,5 @@ public class GameParser : MonoBehaviour
         return false;
     }
 
-    public bool IsUsingNetwork(Sequence gameSequence) => gameSequence.Background.Length > 0 || gameSequence.Questions.Values.Any(lq => lq.Any(q => q.Background.Length > 0 || q.Image.Length > 0 || q.Audio.Length > 0));
+    public bool IsUsingNetwork(Sequence gameSequence) => gameSequence.Background.Length > 0 || gameSequence.Questions.Values.Any(lq => lq.Any(q => q.Background.Length > 0 || q.QuestionImage.Length > 0 || q.Audio.Length > 0));
 }

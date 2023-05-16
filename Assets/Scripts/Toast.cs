@@ -25,14 +25,8 @@ public class Toast : MonoBehaviour
 
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerEventData, results);
-        
-        foreach (var toast in _allToasts)
-        {
-            if (results.Any(hit => hit.gameObject == toast.GetComponent<ToastPrefab>().ToastPanel.gameObject))
-                return true;
-        }
 
-        return false;
+        return _allToasts.Any(toast => results.Any(hit => hit.gameObject == toast.GetComponent<ToastPrefab>().ToastPanel.gameObject));
     }
 
     public void ShowToast(ToastMessageType type, string title, string content, float duration = 3f, float transition = 1f)
